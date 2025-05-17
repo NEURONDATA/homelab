@@ -229,6 +229,11 @@ def process_pdf_chunks(pdf_path: str, api_key: str, model_id: str = "gemini-2.5-
 
 # ───────────────────────────  RUN  ───────────────────────────
 if __name__ == "__main__":
-    pdf_path = "/files/2206.pdf"                    # update as needed
+    import argparse
+    parser = argparse.ArgumentParser(description="Extract line items from a construction cost table in a PDF.")
+    parser.add_argument('--pdf-path', required=True, help='Path to the PDF file to process')
+    args = parser.parse_args()
+
+    pdf_path = args.pdf_path
     api_key  = os.getenv("GEMINI_API_KEY") or "AIzaSyCF3i6b2uVL08P231upan0it_Yohdl4DJ0"
     process_pdf_chunks(pdf_path, api_key)
