@@ -237,3 +237,13 @@ if __name__ == "__main__":
     pdf_path = args.pdf_path
     api_key  = os.getenv("GEMINI_API_KEY") or "AIzaSyCF3i6b2uVL08P231upan0it_Yohdl4DJ0"
     process_pdf_chunks(pdf_path, api_key)
+import sys
+
+output_json_path = "/files/2206/combined_response_2206.json"
+try:
+    with open(output_json_path, "r") as f:
+        data = json.load(f)
+        print(json.dumps(data, indent=2))
+except Exception as e:
+    print(f"Error reading output JSON: {e}", file=sys.stderr)
+    sys.exit(1)
