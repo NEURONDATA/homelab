@@ -1,0 +1,4 @@
+pipx
+PyPDF2
+pydantic
+google-genai
